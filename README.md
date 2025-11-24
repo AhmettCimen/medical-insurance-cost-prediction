@@ -74,8 +74,8 @@ Model, sigorta maliyetlerinin geniş aralığı (birkaç binden on binlerce dola
 ### 1. Modelin Temel Başarısı
 Model, sigorta maliyetlerinin geniş aralığı (birkaç binden on binlerce dolara) düşünüldüğünde, oldukça düşük bir hata payı yakalamıştır.
 
-* **RMSE (Kök Ortalama Kare Hatası):** $**975** (Örneğinizden alınan değer).
- 	* **Anlamı:** Modelin yaptığı tahminler, gerçek maliyetten ortalama **975 Dolar** sapmıştır. Bu, sektör standartlarında çok güçlü bir performanstır.
+* **RMSE (Kök Ortalama Kare Hatası): $975
+ 	* **Anlamı:** Modelin yaptığı tahminler, gerçek maliyetten ortalama **975 Dolar** sapmıştır. 
 
 ---
 
