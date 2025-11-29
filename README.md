@@ -6,39 +6,40 @@
 
 ## a)Simple Linear Regression (Basit Doğrusal Regresyon)
 
-Bu kısım, projenin tek bir değişkene dayalı basit bir Lineer Regresyon modeliyle nasıl başlayacağını gösterir. Modelin amacı, bir eğim (**m**) ve bir sabit (**b**) üzerinden tahmin yapmaktır.
+Bu kısım, projenin tek bir değişkene dayalı basit bir Lineer Regresyon modeliyle nasıl başlayacağını gösterir. Modelin amacı, bir eğim (m) ve bir sabit (b) üzerinden tahmin yapmaktır.
 
-**Tahmin Formülü:**  
+Tahmin Formülü:  
 
- ![Tahmin Formülü](images/ymxb.png)
+ ![](images/ymxb.png)
 
 ### 1. Hata Fonksiyonu (Cost Function / MSE)
 Modelin eğitim sürecinde, tahminlerin gerçek değerlerden ne kadar saptığını ölçmek için Ortalama Kare Hata (MSE) kullanılır.
+Büyük MSE değerlerini anlamlı bir şekilde yorumlayabilmek için RMSE kullanabiliriz (MSE'nin kökü).
 
-**Hata Fonksiyonu Görseli:**   
-![MSE Hata Fonksiyonu](images/mse_cost_function.png)
+Hata Fonksiyonu Görseli:   
+![mse](images/mse_cost_function.png)
 
 ### 2. Türev ve Güncelleme (Gradient Descent)
-Hatanın minimuma inmesi için $m$ ve $b$ değerlerini güncelleyen türevler (Gradyanlar) hesaplanır:
+Hatanın minimuma inmesi için m ve b değerlerini güncelleyen türevler (Gradyanlar) hesaplanır:
 
-* **m için Türev Görseli:**   
-  ![Gradyan Türevi m](images/gradient_derivative_m.png)
+m için Türev Görseli:   
+  ![m türev](images/gradient_derivative_m.png)
 
-* **b için Türev Görseli:**   
-  ![Gradyan Türevi b](images/gradient_derivative_b.png)
+b için Türev Görseli:   
+  ![b türev](images/gradient_derivative_b.png)
  
-* **Parametre Güncelleme Kuralı Görseli:**   
- ![Parametre Güncelleme Kuralı](images/update_rule_m_b.png)
+Parametre Güncelleme Kuralı Görseli:   
+ ![parametreGüncelleme](images/update_rule_m_b.png)
 
 ### 3. Simple Linear Regression Yetersizliği
-Bu görsel, tek bir değişkene dayanan **Simple Linear Regression'ın** (sadece BMI) sigorta maliyeti verisi üzerinde çizdiği doğruyu göstermektedir. Görüldüğü gibi, sadece BMI verisi kullanılarak maliyet hesabı tahmin edilmekte, fakat diğer veriler kullanılmadığı için (yaş, sigara kullanımı, cinsiyet vb.) gerçekçi değerler ortaya koymamaktadır.
+Bu görsel, tek bir değişkene dayanan Simple Linear Regression'ın (sadece BMI) sigorta maliyeti verisi üzerinde çizdiği doğruyu göstermektedir. Görüldüğü gibi, sadece BMI verisi kullanılarak maliyet hesabı tahmin edilmekte, fakat diğer veriler kullanılmadığı için (yaş, sigara kullanımı, cinsiyet vb.) gerçekçi değerler ortaya koymamaktadır.
 
-**BMI ve Maliyet İlişkisi Görseli:**      
-![BMI ve InsuranceCost Görseli](images/bmi_vs_insurance_simple.png)
+BMI ve Maliyet İlişkisi Görseli:      
+![BMIveInsurance](images/bmi_vs_insurance_simple.png)
 
 ---
 
-## Neden Tek Değişkenli Regresyon Yetmedi?
+Neden Tek Değişkenli Regresyon Yetmedi?
 
 Simple Linear Regression, verinin yanlızca bir değişkene bağlı değiştiğini varsayar.
 
@@ -50,7 +51,7 @@ Ancak, sigorta masrafları karmaşıktır. Bir kişinin maliyetini belirleyen y�
 
 Bu nedenle tek bir eğim katsayısı (**m**) yeterli olmaz. Artık her faktörün maliyet üzerindeki etkisini gösteren kendi ağırlığına (W) ihtiyacımız var. Her feature için değişen m değerleri gibi düşünebiliriz. 
 
-**Özetle, basit bir y = mx + b yerine, y = w_1x_1 + w_2x_2 + ... + b gibi çok daha güçlü bir matematik kullanıyoruz.**
+Özetle, basit bir y = mx + b yerine, y = w_1x_1 + w_2x_2 + ... + b gibi çok daha güçlü bir matematik kullanıyoruz.
 
 ---
 ## b)Multiple Linear Regression (Çoklu Doğrusal Regresyon)
@@ -59,10 +60,10 @@ Bu nedenle tek bir eğim katsayısı (**m**) yeterli olmaz. Artık her faktörü
 
 Modelin sağlıklı sonuç verebilmesi için veriyi düzenledik:
 
-* **Temizleme:** Eksik verileri (`NaN` içeren satırlar) `df.dropna()` ile kaldırdık.
-* **Ordinal Sayıya Çevirme:** Sıralı kategorik verileri (`low, medium, high`) **0, 1, 2** gibi sayılara çevirdik.
-* **Nominal Sayıya Çevirme (One-Hot Encoding):** Sıralanamayan metin verilerini (`male, female, region`) **One-Hot Encoding** yöntemiyle (1'ler ve 0'lar) sayısallaştırıldık.
-* **Ayırma:** Veriyi **%80 Eğitim** ve **%20 Test** olarak ayırıp modelin ezber yapmasını engelledik.
+* Temizleme: Eksik verileri (NaN içeren satırlar) df.dropna() ile kaldırdık.
+* Ordinal Sayıya Çevirme: Sıralı kategorik verileri (low, medium, high) 0, 1, 2 gibi sayılara çevirdik.
+* Nominal Sayıya Çevirme (One-Hot Encoding): Sıralanamayan metin verilerini (male, female, region) One-Hot Encoding yöntemiyle (1'ler ve 0'lar) sayısallaştırıldık.
+* Ayırma: Veriyi %80 Eğitim ve %20 Test olarak ayırıp modelin ezber yapmasını engelledik.
 
 ---
 
@@ -74,8 +75,8 @@ Model, sigorta maliyetlerinin geniş aralığı (birkaç binden on binlerce dola
 ### 1. Modelin Temel Başarısı
 Model, sigorta maliyetlerinin geniş aralığı (birkaç binden on binlerce dolara) düşünüldüğünde, oldukça düşük bir hata payı yakalamıştır.
 
-* **RMSE (Kök Ortalama Kare Hatası): $975
- 	* **Anlamı:** Modelin yaptığı tahminler, gerçek maliyetten ortalama **975 Dolar** sapmıştır. 
+* RMSE (Kök Ortalama Kare Hatası): $975
+ 	* Anlamı: Modelin yaptığı tahminler, gerçek maliyetten ortalama 975 Dolar sapmıştır. 
 
 ---
 
@@ -86,26 +87,26 @@ Model, sigorta maliyetlerinin geniş aralığı (birkaç binden on binlerce dola
 #### Pozitif Korelasyonu Olanlar (Maliyet Artıranlar)
  Sigara, diyabet, yüksek tansiyon ve ileri yaş gibi faktörler sağlık riskini artırdığı için sigorta maliyetini yükseltir.
  
-<img src="images/bmi_effect.png" alt="BMI" width="45%"> <img src="images/age_effect.png" alt="Yaş" width="45%">
+<img src="images/bmi_effect.png"  width="45%"> <img src="images/age_effect.png" width="45%">
 
-<img src="images/smoker_yes_effect.png" alt="Sigara" width="45%"> <img src="images/children_effect.png" alt="Çocuk" width="45%">
+<img src="images/smoker_yes_effect.png"  width="45%"> <img src="images/children_effect.png"  width="45%">
 
-<img src="images/diabetes_effect.png" alt="Diyabet" width="45%"> <img src="images/heart_disease_effect.png" alt="Kalp" width="45%">
+<img src="images/diabetes_effect.png"  width="45%"> <img src="images/heart_disease_effect.png"  width="45%">
 
-<img src="images/hypertension_effect.png" alt="Tansiyon" width="45%">
+<img src="images/hypertension_effect.png"  width="45%">
  
 
 #### Negatif Korelasyonu Olanlar (Maliyeti Azaltanlar)
  Düzenli egzersiz,kronik hastalığa sahip olmamak ve sigara kullanmamak riskleri azalttığı için sigorta maliyetini düşürür.
  
-<img src="images/exercise_frequency_effect.png" alt="Egzersiz" width="45%"> <img src="images/disease_none_effect.png" alt="Kronik Hastalıksız" width="45%">
-<img src="images/smoker_no_effect.png" alt="Sigara Kullanmayan" width="45%">
+<img src="images/exercise_frequency_effect.png" width="45%"> <img src="images/disease_none_effect.png"  width="45%">
+<img src="images/smoker_no_effect.png"  width="45%">
 
 
 #### Belirgin Korelasyonu Olmayan Örnek
  Cinsiyet ve gelir düzeyi gibi faktörlerin sağlığa doğrudan bir etkisi olmadığı için maliyeti önemli ölçüde değiştirmez.
  
-<img src="images/annual_income.png" alt="Gelir" width="45%"> <img src="images/sex_effect.png" alt="Cinsiyet" width="45%">
+<img src="images/annual_income.png" width="45%"> <img src="images/sex_effect.png" alt="Cinsiyet" width="45%">
 
 
 
@@ -116,7 +117,7 @@ Model, sigorta maliyetlerinin geniş aralığı (birkaç binden on binlerce dola
 Bu grafik, modelin ne kadar isabetli tahmin yaptığını gösterir. İdeal bir modelde tüm noktalar kırmızı kesik çizginin üzerine düşmelidir. Noktaların çizgiye yakınlığı, modelin güvenilirliğini kanıtlar.
 
 Multiple Linear Regression için RMSE = 975,73 hesaplanır, bu da modelin yaklaşık olarak 975,73 dolar saptığını gösterir
-![Gerçek vs Tahmin](images/actual_vs_predicted_mlr.png)
+![gercekVsTahmin](images/actual_vs_predicted_mlr.png)
 
 ---
 
@@ -126,24 +127,24 @@ Modelin test verileri üzerinden rastgele seçilen tek bir hasta üzerinde nası
 
  
 
-![Hasta Seçim Kodu](images/code1.png)
+![hastaSecim](images/code1.png)
 
 Örnek Bazı Özellikler
 | Özellik (Feature) | Değer (Value) 
 | :--- | :--- 
-| **age** | 40 
-| **bmi** | 42.1 
-| **children** | 1 
-| **exercise\_frequency** | 1.0 
-| **annual\_income** | 36246  
-| **chronic\_disease\_none** | 1 
+| age | 40 
+| bmi | 42.1 
+| children | 1 
+| exercise\_frequency | 1.0 
+| annual\_income | 36246  
+| chronic\_disease\_none | 1 
 
-| Metrik | Sonuç |
+| Ölçülen | Sonuç |
 | :--- | :--- |
-| Model Prediction | $**8345.30** |
-| Actual Value | $**8389.83** |
-| Difference | $**-44.53** |
-| Percentage Error | **%-0.53** |
+| Model Prediction | $8345.30 |
+| Actual Value | $8389.83 |
+| Difference | $-44.53 |
+| Percentage Error | %-0.53 |
 
 
 
@@ -163,7 +164,7 @@ Polynomial Regression ise düz olan bu çizginin bükülmesine izin verir.
 
 Aşağıdaki görsellerde modelin yaş, yıllık gelir ve BMI verilerine göre çizdiği genel eğilimleri görüyoruz. İlk bakışta, bu çizgilerin Multiple Linear Regression'daki düz çizgilerden çok farklı değilmiş gibi gözüküyor.
 
-<img src="images/age_p.png"  width="32%"> <img src="images/annual_p.png"  width="32%"> <img src="images/bmi_p.png" alt="BMI Polynomial" width="32%">
+<img src="images/age_p.png"  width="32%"> <img src="images/annual_p.png"  width="32%"> <img src="images/bmi_p.png" width="32%">
 
 ### 2. Detaylı İnceleme (Yakınlaştırılmış)
 
@@ -181,4 +182,4 @@ Polynominal Regression için RMSE = 1192,03 hesaplanır , bu da modelin yaklaş�
 
 Polinomsal modelin test verisi üzerindeki genel başarısı aşağıdadır. Noktaların ideal çizgiye (y=x) olan yakınlığı, modelin tahmin gücünü gösterir.
 
-![GercekVsTahmin](images/actual_vs_predicted_p.png)
+![gercekVsTahminPoly](images/actual_vs_predicted_p.png)
