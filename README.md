@@ -185,7 +185,7 @@ Polinomsal modelin test verisi üzerindeki genel başarısı aşağıdadır. Nok
 ![gercekVsTahminPoly](images/actual_vs_predicted_p.png)
 
 ---
-#Sonuç
+# Sonuç
 Bu projede, hastaların sağlık verileri kullanılarak sayısal bir değer (sağlık sigorta maliyeti) tahmin etmek istediğim için Classification ve Logistic Regression yöntemleri bu veriseti için uygun değil. Bu nedenle sadece Regression modelleri üstünde çalıştım.
 
 * Simple Linear Regression: Tek feature üzerinde çalışabildiği için çok feature bulunan bu veriseti için yetersiz kaldı.
