@@ -183,3 +183,11 @@ Polynominal Regression için RMSE = 1192,03 hesaplanır , bu da modelin yaklaş�
 Polinomsal modelin test verisi üzerindeki genel başarısı aşağıdadır. Noktaların ideal çizgiye (y=x) olan yakınlığı, modelin tahmin gücünü gösterir.
 
 ![gercekVsTahminPoly](images/actual_vs_predicted_p.png)
+
+---
+#Sonuç
+Bu projede, hastaların sağlık verileri kullanılarak sayısal bir değer (sağlık sigorta maliyeti) tahmin etmek istediğim için Classification ve Logistic Regression yöntemleri bu veriseti için uygun değil. Bu nedenle sadece Regression modelleri üstünde çalıştım.
+
+* Simple Linear Regression: Tek feature üzerinde çalışabildiği için çok feature bulunan bu veriseti için yetersiz kaldı.
+* Multiple Linear Regression: RMSE 975 olduğu için, bu veriseti içn diğer yöntemlerden daha iyi sonuçlar verdi.
+* Polynominal Regression: RMSE değeri bu yöntemle 1192 hesaplandı. Bu sonuç Multiple Linear Regressiondan daha kötü olduğu için, Polynominal Regression bu veriseti için yetersiz kaldı.
